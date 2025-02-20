@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendy APK</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { width: 300px; margin: auto; padding: 20px; border: 1px solid #000; border-radius: 10px; }
+        input { width: 90%; padding: 5px; margin-bottom: 10px; }
+        .contact { display: flex; align-items: center; padding: 10px; border: 1px solid #ddd; cursor: pointer; justify-content: start; }
+        .contact img { width: 30px; height: 30px; margin-right: 10px; border-radius: 50%; }
+        .contact span { flex-grow: 1; text-align: left; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Rendy APK</h2>
+        <input type="text" id="search" placeholder="Search" onkeyup="filterContacts()">
+        <div id="contact-list">
+            <div class="contact" onclick="openWhatsApp('6285810958850')">
+                <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="icon"> 
+                <span>Sayang</span>
+            </div>
+            <div class="contact" onclick="openWhatsApp('625716957498')">
+                <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="icon"> 
+                <span>Rendi</span>
+            </div>
+            <div class="contact" onclick="openWhatsApp('6285678901234')">
+                <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="icon"> 
+                <span>Kori</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function filterContacts() {
+            let input = document.getElementById("search").value.toLowerCase();
+            let contacts = document.querySelectorAll(".contact");
+            contacts.forEach(contact => {
+                contact.style.display = contact.innerText.toLowerCase().includes(input) ? "flex" : "none";
+            });
+        }
+        function openWhatsApp(number) {
+            window.open(`https://wa.me/${number}`, '_blank');
+        }
+    </script>
+</body>
+</html>>
